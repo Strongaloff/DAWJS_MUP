@@ -146,16 +146,23 @@
         <li>
           <h3>Songs Manager</h3>
           <p>
-            descriere Songs Manager
+            ​ Account Management is a service meant to run song operations
+            like adding a song, removing a song, updating a song details,
+            adding a song to a playlist and removing a song from a playlist
+            as well as getting the details of a song which
+            provides data useful to other services like the Statistics Service.
 
             <h4>Endpoints</h4>
             <ul>
-              <li> </li>
-              <li> </li>
-              <li> </li>
-              <li> </li>
-              <li> </li>
-              <li> </li>
+              <li>Add Song to a Party Session: POST /playlist/{playlist_id} </li>
+              <li>Delete Song from a Party Session: DELETE /playlist/{playlist_id} </li>
+              <li>Get By Playlist Id: GET /playlist/{playlist_id} </li>
+              <li>Add Song to Db: POST /songs </li>
+              <li>Remove Song from Db: DELETE /songs/{song_id} </li>
+              <li>Complete Song Details: PUT /songs/{song_id} </li>
+              <li>Get Song By Id: GET /songs/{song_id} </li>
+              <li>Get Songs By Artist: GET /songs/{song_name} </li>
+              <li>Get Songs By Genre: GET /songs/{song_genre} </li>
             </ul>
           </p>
         </li>
