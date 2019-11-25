@@ -17,7 +17,7 @@ Each column refers to:
  - party_id = the ID of a party
  - party_name = the name of a party
  - host = the name of the person that is hosting the party
- - playlist = the songs list that is or will be played at the party
+ - playlist_id = the id of the song list that is or will be played at the party
  - invite_code = the code generated for a party in order to invite other users
  - user_list = the users that are in a party
 
