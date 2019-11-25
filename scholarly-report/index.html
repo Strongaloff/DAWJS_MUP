@@ -161,9 +161,23 @@
         </li>
 
         <li>
-          <h3>Stats Manager</h3>
+          <h3>Recomandation Manager</h3>
           <p>
-            descriere Stats Manager
+            This microservice will be used to automatize the
+            songs that are being played at a party, as well
+            as getting statistics regarding the current session
+            or for a user (individually, at a party, or generally,
+            the all-time statistics).
+
+            <h4>Endpoints</h4>
+
+            Get user or party statistics
+            <ul>
+              <li>GET /partyStats?party_id=“”</li>
+              <li>GET /userIStats?party_id=“”&user_id=“” </li>
+              <li>GET /userAStats?user_id=“” </li>
+
+            </ul>
           </p>
         </li>
 
