@@ -103,17 +103,43 @@
       <h3>Microservices</h3>
       <ul>
         <li>
-          <h3>Account Manager</h3>
+          <h3>Party management</h3>
           <p>
             The party management microservice will be used to handle some details regarding a party session, such as:
             creating a party, deleting a party, inviting users, removing users, joining a party, leaving a party,
             getting the current playlist of the party and voting a song.
+
+            <h4>Endpoints</h4>
+            <ul>
+              <li>Create a party: POST /party</li>
+              <li>Deleting a party: DELETE /party</li>
+              <li>Inviting an user: POST /invite</li>
+              <li>Removing an user: DELETE /userRemove</li>
+              <li>Joining a party: POST /joinParty</li>
+              <li>Leaving a party: DELETE /leaveParty</li>
+              <li>Getting the party playlist: GET /playlist</li>
+              <li>Vote for a song: POST /voteSong</li>
+            </ul>
           </p>
         </li>
         <li>
-          <h3>Party Manager</h3>
+          <h3>Account Manager</h3>
           <p>
-            descriere party manager
+            ​ Account Manager is a service meant to run user operations
+            like registering, logging in, regaining a lost password,
+            but also to provide useful information for other services
+            that is necessary for certain functionalities like: userId
+            and username
+
+
+            <h4>Endpoints</h4>
+            <ul>
+              <li> Register: POST /register </li>
+              <li> Login: POST /login</li>
+              <li>Forgot Password: GET /password/{email} </li>
+              <li>Get By User Id: GET /user/{id} </li>
+              <li>Get By User Name: GET /user/{name}</li>
+            </ul>
           </p>
         </li>
 
@@ -121,6 +147,16 @@
           <h3>Songs Manager</h3>
           <p>
             descriere Songs Manager
+
+            <h4>Endpoints</h4>
+            <ul>
+              <li> </li>
+              <li> </li>
+              <li> </li>
+              <li> </li>
+              <li> </li>
+              <li> </li>
+            </ul>
           </p>
         </li>
 
