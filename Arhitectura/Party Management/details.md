@@ -37,7 +37,7 @@ Each column refers to:
 
 ### Removing an user
 
-*Request:* **DELETE /userRemove?user_name=“”**
+*Request:* **DELETE /user?party_name=""&user_name=“”**
 
 ### Joining a party
 
