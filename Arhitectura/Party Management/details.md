@@ -37,11 +37,11 @@ Each column refers to:
 
 ### Removing an user
 
-*Request:* **DELETE /userRemove?user_name=“”**
+*Request:* **DELETE /user?party_name=""&user_name=“”**
 
 ### Joining a party
 
-*Request:* **POST /joinParty?invite_code=“”**
+*Request:* **POST /party?party_name=""&invite_code=“”**
 
 ### Leaving a party
 

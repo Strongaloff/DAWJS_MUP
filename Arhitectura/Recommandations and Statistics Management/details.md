@@ -45,9 +45,9 @@
 
 ### Get user or party statistics
 
-*Request:* **GET /partyStats?party_id=“”**
+*Request:* **GET /stats?party_id=“”**
 
-*Request:* **GET /userIStats?party_id=“”&user_id=“”**
+*Request:* **GET /stats?party_id=“”&user_id=“”**
 
-*Request:* **GET /userAStats?user_id=“”**
+*Request:* **GET /stats?user_id=“”**
 
