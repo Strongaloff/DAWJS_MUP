@@ -41,7 +41,7 @@ Each column refers to:
 
 ### Joining a party
 
-*Request:* **POST /joinParty?invite_code=“”**
+*Request:* **POST /party?party_name=""&invite_code=“”**
 
 ### Leaving a party
 
