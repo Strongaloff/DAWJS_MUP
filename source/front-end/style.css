@@ -1,0 +1,14 @@
+.join {
+  display: flex;
+}
+
+.create {
+  display: flex;
+}
+
+div {
+  margin: 15px;
+}
+div > * {
+  margin-right: 20px;
+}
