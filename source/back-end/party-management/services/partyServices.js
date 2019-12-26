@@ -1,4 +1,4 @@
-let partyRepository = require("../database/party/repository");
+let partyRepository = require("../repositories/repository");
 
 module.exports.add = (partyName, hostName, callback) => {
   partyRepository.addNew(
