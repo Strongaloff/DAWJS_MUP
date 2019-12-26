@@ -4,7 +4,9 @@ var partyController = require("../controllers/partyController");
 var userController = require("../controllers/userController");
 router.post("/", partyController.createParty);
 
-router.post("/join", userController.joinParty);
+router.post("user/join", userController.joinParty);
+
+router.post("invite", userController.inviteUser);
 
 router.get("/", partyController.getInviteCode);
 
