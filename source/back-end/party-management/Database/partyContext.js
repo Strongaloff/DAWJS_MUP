@@ -1,10 +1,5 @@
 var mongoClient = require("mongodb").MongoClient;
 var url = "mongodb://localhost:27017/party-management";
-let codes = require("../../constants/Codes");
-const resp = {
-  success: "success",
-  failure: "error"
-};
 
 mongoClient.connect(url, (err, db) => {
   if (err) throw err;

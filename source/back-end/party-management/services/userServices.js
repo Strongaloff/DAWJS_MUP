@@ -1,5 +1,5 @@
-let partyRepository = require("../repositories/repository");
-let userRepository = require("../database/users/repository");
+let partyRepository = require("../repositories/partyRepository");
+let userRepository = require("../repositories/usersRepository");
 
 module.exports.joinUser = (userId, invitationCode, callback) => {
   partyRepository.getPartyByInvitationCode(invitationCode, partyId => {
