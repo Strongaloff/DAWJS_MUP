@@ -7,5 +7,6 @@ let app = express();
 app.use(cors());
 app.use("/", party);
 
-app.listen(8001, () => console.log(`Example app listening on port 8001!`));
-console.log();
+app.listen(8001, () => {
+  console.log(`party management microservice is running`);
+});
