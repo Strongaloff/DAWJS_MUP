@@ -10,3 +10,8 @@ Content-Type: application/json
 ####
 
 GET http://localhost:8002/password/email@domain.net
+
+
+###
+
+GET http://localhost:6969/password/email@domain.net

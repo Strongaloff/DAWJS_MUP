@@ -10,6 +10,6 @@ router.get('/password/:email', controller.forgotPasswordByEmail);
 
 router.get('/user/:id', controller.getById);
 
-router.get('user/:username', controller.getByUsername);
+router.get('/user/:username', controller.getByUsername);
 
 module.exports = router;
