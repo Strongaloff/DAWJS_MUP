@@ -1,10 +1,10 @@
-var mongoClient = require("mongodb").MongoClient;
-var url = "mongodb://localhost:27017/party-management";
+var mongoClient = require('./node_modules/mongodb').MongoClient;
+var url = 'mongodb://localhost:27017/party-management';
 
 mongoClient.connect(url, (err, db) => {
   if (err) throw err;
 
-  let collection = db.db("party-management").collection("party-users");
+  let collection = db.db('party-management').collection('party-users');
   exports.insert = function insert(obj) {
     collection.insert(obj, (err, res) => {
       if (err) throw err;

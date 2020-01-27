@@ -1,19 +1,32 @@
-exports.register((req, res) => {
-  return 'register';
-});
+var db = require('../database/account-db');
 
-exports.login((req, res) => {
+exports.register = (req, res) => {
+  accountObj = req.body;
+
+  db.create(accountObj).then(resp => {
+    res.send('success');
+  });
+  // res.send('register ok');
+};
+
+exports.login = (req, res) => {
   return 'login';
-});
+};
 
-exports.forgotPasswordByEmail((req, res) => {
-  return 'forgot by email';
-});
+exports.forgotPasswordByEmail = (req, res) => {
+  db.getByEmail(req.params.email).then(account => {
+    res.send(account);
+  });
+};
 
-exports.getById((req, res) => {
-  return 'get by id';
-});
+exports.getById = (req, res) => {
+  db.getById(req.paras.id).then(account => {
+    res.send(account);
+  });
+};
 
-exports.getByName((req, res) => {
-  return 'get by name';
-});
+exports.getByUsername = (req, res) => {
+  db.getByUsername(req.params.username).then(account => {
+    res.send(account);
+  });
+};

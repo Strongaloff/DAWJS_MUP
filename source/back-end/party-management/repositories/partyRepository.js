@@ -1,4 +1,4 @@
-var dbContext = require("../Database/partyContext");
+var dbContext = require('../database/partyContext');
 function addNew(partyName, hostName, callback) {
   dbContext.find({ name: partyName }, result => {
     if (result === null) {
