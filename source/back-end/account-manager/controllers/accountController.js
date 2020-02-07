@@ -2,10 +2,10 @@ var db = require('../database/account-db');
 
 exports.register = (req, res) => {
   accountObj = req.body;
-
-  db.create(accountObj).then(resp => {
-    res.send('success');
-  });
+  res.send('success');
+  // db.create(accountObj).then(resp => {
+  //   res.send('success');
+  // });
   // res.send('register ok');
 };
 
