@@ -1,6 +1,6 @@
 var express = require('express');
 var cors = require('cors');
-var routes = require('./routes/accountRoutes');
+var routes = require('./routes/account.routes');
 
 let app = express();
 app.use(express.json());
