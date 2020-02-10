@@ -30,11 +30,37 @@
             />
           </div>
           <div class="form-buttons">
-            <button type="submit">Submit</button>
+            <button id="loginButton" type="button">Submit</button>
             <button onclick="window.location.href = './register';">Register</button>
           </div>
         </form>
       </div>
     </div>
   </body>
+  <script>
+    let loginBtn = document.getElementById("loginButton");
+    loginBtn.addEventListener('click', onClick);
+
+    function onClick() {
+      let name = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+      let data = ({
+        username: name,
+        password: password
+      })
+      let url = "http://localhost:6969/login"
+      fetch(url, {
+        method: 'GET',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then((resp) => {
+        if (resp.status == 200) return resp.json();
+      }).then(jsonResp => {
+        localStorage.addItem("jwt", jsonResp.token);
+        console.log("Succes");
+      })
+    }
+  </script>
 </html>

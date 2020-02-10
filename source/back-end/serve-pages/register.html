@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <div class="form-container">
-        <form method="POST" action="http://localhost:6969/register">
+        <form method="POST">
           <span class="form-title">Register</span>
           <div class="form-group">
             <input
@@ -38,14 +38,44 @@
               required
             />
           </div>
-          <div class="form-buttons">
-            <button type="submit">Submit</button>
-            <button onclick="window.location.href = './login';">
-              Login
-            </button>
-          </div>
+          <div class="form-buttons"></div>
         </form>
+        <button id="registerButton" type="button">Submit</button>
+        <button onclick="window.location.href = './login';">
+          Login
+        </button>
       </div>
     </div>
   </body>
+  <script>
+    let registerBtn = document.getElementById("registerButton");
+    registerBtn.addEventListener("click", onClick);
+
+    function onClick() {
+      let name = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+      let email = document.getElementById("email").value;
+      let urlCheck = "http://localhost:6969/register";
+      let data = {
+        username: name,
+        password: password,
+        email: email
+      };
+      console.log(data);
+      fetch(urlCheck, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(resp => {
+          if (resp.status == 200) return resp.json();
+        })
+        .then(jsonResp => {
+          localStorage.setItem("jwt", jsonResp.token)
+          location.href = "./login";
+        });
+    }
+  </script>
 </html>

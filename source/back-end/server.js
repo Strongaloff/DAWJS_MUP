@@ -10,13 +10,17 @@ let credentials = {
     cert: certificate
 }
 
-let cors=require('cors');
+let cors = require('cors');
 let app = express();
 
 app.use("/cssFiles", express.static(__dirname + "/serve-pages/css/"))
 
-app.get('/', function (req, res) {
+app.get('/register', function (req, res) {
     res.sendFile(__dirname + "/serve-pages/register.html");
+})
+
+app.get('/login', function (req, res) {
+    res.sendFile(__dirname + "/serve-pages/login.html")
 })
 
 let httpsServer = https.createServer(credentials, app);
