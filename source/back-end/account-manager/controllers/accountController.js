@@ -1,23 +1,21 @@
-var db = require('../database/account-db');
+var db = require("../database/account-db");
 
 exports.register = (req, res) => {
   accountObj = req.body;
   console.log(req.body);
   db.create(accountObj).then(resp => {
-    res.send('success');
+    res.send("success");
   });
 };
 
 exports.login = (req, res) => {
   db.login(req.body).then(result => {
-    if(result.email !== undefined) {
-      res.send('successfull login')
+    if (result !== null) {
+      res.send("successfull login");
+    } else {
+      res.status(500).send("Not existent user");
     }
-    else {
-      res.status(500).send('Not existent user');
-    }
-  })
-  res.send('OK');
+  });
 };
 
 exports.forgotPasswordByEmail = (req, res) => {
