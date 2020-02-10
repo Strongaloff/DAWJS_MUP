@@ -22,6 +22,11 @@ exports.create = obj => {
   return newAccount.save();
 };
 
+exports.login = obj => {
+  let querry = AccountModel.findOne({ username: obj.username, password: obj.password});
+  return querry.exec();
+}
+
 exports.getById = id => {
   let querry = AccountModel.findOne({ _id: id });
   return querry.exec();
