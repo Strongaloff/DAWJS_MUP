@@ -60,6 +60,7 @@ input {
 	padding: 0 10px 0 10px;
 	outline: none;
 	border: none;
+	width: 100%;
 }
 
 input:invalid {

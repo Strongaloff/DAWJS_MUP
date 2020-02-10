@@ -31,7 +31,9 @@
           </div>
           <div class="form-buttons">
             <button id="loginButton" type="button">Submit</button>
-            <button onclick="window.location.href = './register';">Register</button>
+            <button onclick="window.location.href = './register';">
+              Register
+            </button>
           </div>
         </form>
       </div>
@@ -39,30 +41,39 @@
   </body>
   <script>
     let loginBtn = document.getElementById("loginButton");
-    loginBtn.addEventListener('click', onClick);
+    loginBtn.addEventListener("click", onClick);
 
     function onClick() {
       let name = document.getElementById("username").value;
       let password = document.getElementById("password").value;
-      let data = ({
+      let data = {
         username: name,
         password: password
-      })
+      };
       console.log(data);
-      let url = "http://localhost:6969/login"
+      let url = "http://localhost:6969/login";
       fetch(url, {
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify(data),
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         }
-      }).then((resp) => {
-        if (resp.status == 200) return resp.json();
-        else console.log("error")
-      }).then(jsonResp => {
-        localStorage.setItem("jwt", jsonResp.token);
-        console.log("Succes");
       })
+        .then((resp) => {
+          console.log(resp);
+          if (resp.status == 200) return resp.json();
+          else if (resp.status == 404) alert("Invalid data");
+        })
+        .then(jsonResp => {
+          localStorage.setItem("jwt", jsonResp.token);
+          localStorage.setItem("user", name)
+          location.href = "./main";
+        })
+        .catch(onError);
+
+        function onError(err) {
+          console.log('error');
+        }
     }
   </script>
 </html>

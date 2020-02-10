@@ -10,10 +10,11 @@ exports.register = (req, res) => {
 
 exports.login = (req, res) => {
   db.login(req.body).then(result => {
-    if (result !== null) {
-      res.send("successfull login");
+    console.log(result);
+    if (result === null) {
+      res.status(404).send("not ok");
     } else {
-      res.status(500).send("Not existent user");
+      res.status(200).send("ok");
     }
   });
 };
