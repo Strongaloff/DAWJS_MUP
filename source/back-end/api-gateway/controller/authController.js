@@ -20,7 +20,7 @@ exports.register = (req, res) => {
 };
 
 exports.login = (req, res) => {
-  api.get(req.path, req.body).then(resp => {
+  api.post(req.path, req.body).then(resp => {
     if (resp.status !== 200) {
       res.status(500).send('invalid credetials');
     }

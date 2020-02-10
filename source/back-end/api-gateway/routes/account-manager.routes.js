@@ -18,7 +18,7 @@ router.use(bodyParser.json());
 
 router.post('/register', authController.register);
 
-router.get('/login', authController.login);
+router.post('/login', authController.login);
 
 router.get('/password/:email', isAuthorized, (req, res) => {
   api.get(req.path).then(resp => {
