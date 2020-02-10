@@ -9,7 +9,15 @@ exports.register = (req, res) => {
 };
 
 exports.login = (req, res) => {
-  return 'login';
+  db.login(req.body).then(result => {
+    if(result.email !== undefined) {
+      res.send('successfull login')
+    }
+    else {
+      res.status(500).send('Not existent user');
+    }
+  })
+  res.send('OK');
 };
 
 exports.forgotPasswordByEmail = (req, res) => {
