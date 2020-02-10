@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.background-image {
+  background-image: url(../img/african-dance-background.jpg);
+  height: 100%;
+  filter: blur(7px) grayscale(100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  text-align: center;
+  background: #ffffff;
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+}
+
+.container-title {
+  display: block;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+
+.button-containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button-containers button:nth-child(2) {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.button-containers button {
+  min-width: 200px;
+  background-color: #e6e6e6;
+  outline: none;
+  border: none;
+  padding: 9px;
+  color: #000000;
+  transition: all 0.3s;
+}
+
+.button-containers button:hover {
+  background-color: #424242;
+  color: #ffffff;
+}

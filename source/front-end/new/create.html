@@ -3,19 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/login-register.css" />
     <title>Document</title>
   </head>
   <body>
     <div class="container">
       <div class="form-container">
         <form method="POST">
-          <span class="form-title">Login</span>
+          <span class="form-title">Create your party</span>
           <div class="form-group">
             <input
               type="text"
-              name="username"
-              id="username"
+              name="party-name"
+              id="party-name"
               placeholder="Username"
               required
             />
@@ -31,7 +30,9 @@
           </div>
           <div class="form-buttons">
             <button type="submit">Submit</button>
-            <button onclick="window.location.href = './register';">Register</button>
+            <button onclick="window.location.href = './register.html';">
+              Register
+            </button>
           </div>
         </form>
       </div>
