@@ -33,7 +33,13 @@ exports.joinUser = (req, res) => {
   userDb.find({ userName: userObj.userName }).then(result => {
     console.log(result);
     if (result === null) {
-      userDb.create(userObj).then(result => {
+      userDb.create({
+        partyId: partyObj.partyId,
+        userName: user,
+        favoredArtist: partyObj.artistName,
+        favoredGenere: partyObj.genereName,
+        favoredSong: partyObj.songName
+      }).then(result => {
         res.send(result);
       });
     } else {
@@ -58,4 +64,4 @@ exports.getAllUsers = (req, res) => {
       .send(result.filter(user => user.partyId == partyObj.inviteCode));
   });
 };
-exports.deleteCode = (req, res) => {};
+exports.deleteCode = (req, res) => { };
