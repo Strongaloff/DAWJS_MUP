@@ -2,7 +2,6 @@ var express = require("express");
 var multer = require("multer");
 var fs = require("fs");
 var app = express();
-
 var storage = multer.diskStorage({
   destination: function(req, file, callback) {
     callback(null, "./uploads");
@@ -11,10 +10,13 @@ var storage = multer.diskStorage({
     callback(null, file.fieldname + "-" + Date.now());
   }
 });
+var upload = multer({ storage: storage }).single("userSong");
 
-var upload = multer({ storage: storage }).single("uploadSong");
+app.get("/", function(req, res) {
+  res.sendFile(__dirname + "/serve-pages/upload.html");
+});
 
-app.post("/", function(req, res) {
+app.post("/api/songUpload", function(req, res) {
   upload(req, res, function(err) {
     if (err) {
       return res.end("Error uploading file.");
@@ -25,11 +27,11 @@ app.post("/", function(req, res) {
     ) {
       if (err) console.log("ERROR: " + err);
     });
-    res.end("File is uploaded");
+    res.redirect("https://localhost:8089/create")
   });
   //   console.log(req);
 });
 
-app.listen(8003, function() {
-  console.log("Working on port 8003");
+app.listen(8075, function() {
+  console.log("Working on port 8075");
 });

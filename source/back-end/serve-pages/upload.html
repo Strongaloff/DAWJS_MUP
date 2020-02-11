@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <form
+          id="uploadForm"
+          enctype="multipart/form-data"
+          action="/api/songUpload"
+          method="post"
+        >
+          <input type="file" name="userSong" />
+          <input type="submit" value="Upload Song" name="submit" />
+        </form>
+      </div>
+    </div>
+  </body>
+  <!-- <script type="module" src="app.js"></script> -->
+</html>

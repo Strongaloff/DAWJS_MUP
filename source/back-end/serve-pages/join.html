@@ -10,13 +10,13 @@
     <div class="container">
       <div class="form-container">
         <form method="POST">
-          <span class="form-title">Create your party</span>
+          <span class="form-title">Join a party</span>
           <div class="form-group">
             <input
               type="text"
-              name="party-name"
-              id="party-name"
-              placeholder="Party name"
+              name="invite-code"
+              id="invite-code"
+              placeholder="Invite code"
               required
             />
           </div>
@@ -56,10 +56,10 @@
     </div>
   </body>
   <script>
-    let partyTitle = document.getElementById("party-name");
-    let artist = document.getElementById("artist");
-    let songName = document.getElementById("song");
-    let genre = document.getElementById("genre");
+    let partyCode = document.getElementById("invite-code").value;
+    let artist = document.getElementById("artist").value;
+    let songName = document.getElementById("song").value;
+    let genre = document.getElementById("genre").value;
     let createBtn = document.getElementById("createButton");
     let urlParty = "http://localhost:6969/";
     let urlSong = "http://localhost:8003/";
