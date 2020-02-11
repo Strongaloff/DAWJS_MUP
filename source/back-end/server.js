@@ -1,7 +1,5 @@
 let express = require("express");
 let fs = require("fs");
-let url = require("url");
-let http = require("http");
 let https = require("https");
 const certificate = fs.readFileSync("../utils/liveserver/cert.crt", "utf8");
 const privateKey = fs.readFileSync("../utils/liveserver/key.key", "utf8");
@@ -36,7 +34,7 @@ app.get("/join", function(req, res) {
 });
 
 app.get("/party", function(req, res) {
-  res.sendFile(__dirname + "/serve-pages/join.html");
+  res.sendFile(__dirname + "/serve-pages/party.html");
 });
 
 let httpsServer = https.createServer(credentials, app);

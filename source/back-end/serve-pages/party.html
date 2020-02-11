@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Party management</title>
 </head>
 <body>
     
+    <script>
+        const gyroscope = new Gyroscope({frequency: 0.1});
+
+        let isMoving = false;
+        let gyroCoords = undefined
+        gyroscope.addEventListener('reading', () => {
+            isMoving = false;
+            if (gyroCoords === undefined) {
+                gyroCoords ={
+                    x: gyroscope.x,
+                    y: gyroscope.y,
+                    z: gyroscope.z
+                };
+            } else {
+                squareX = Math.pow(gyroscope.x - gyroCoords.x, 2);
+                squareY = Math.pow(gyroscope.y - gyroCoords.y, 2);
+                squareZ = Math.pow(gyroscope.z - gyroCoords.z, 2);
+                dist = Math.sqrt(squareX + squareY + squareZ);
+                gyroCoords ={
+                    x: gyroscope.x,
+                    y: gyroscope.y,
+                    z: gyroscope.z
+                };
+                if (dist > 0.1) {
+                    isMoving = true;
+                }
+                console.log(isMoving);
+            }
+        });
+
+        gyroscope.start();
+    </script>
 </body>
 </html>
