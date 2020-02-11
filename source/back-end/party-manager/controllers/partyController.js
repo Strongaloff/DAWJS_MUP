@@ -37,11 +37,11 @@ exports.joinUser = (req, res) => {
     console.log(result);
     if (result === null) {
       userDb.create({
-        partyId: partyObj.partyId,
-        userName: partyObj.user,
-        favoredArtist: partyObj.artistName,
-        favoredGenere: partyObj.genereName,
-        favoredSong: partyObj.songName
+        partyId: userObj.partyId,
+        userName: userObj.user,
+        favoredArtist: userObj.artistName,
+        favoredGenere: userObj.genereName,
+        favoredSong: userObj.songName
       }).then(result => {
         res.send(result);
       });
