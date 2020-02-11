@@ -1,0 +1,36 @@
+POST http://localhost:8001
+Content-Type: application/json
+
+{
+    "partyName": "blash2",
+    "userName": "username"
+}
+
+####
+GET http://localhost:8001
+Content-Type: application/json
+
+
+{
+    "partyName": "blash"
+}
+
+###
+
+POST http://localhost:8001/join
+Content-Type: application/json
+
+{
+    "inviteCode": "5e41f8376ef404134c860840",
+    "userName": "gigi23"
+}
+
+
+###
+GET http://localhost:8001/users
+Content-Type: application/json
+
+
+{
+    "inviteCode": "5e41f7e0923cef129f220121"
+}
