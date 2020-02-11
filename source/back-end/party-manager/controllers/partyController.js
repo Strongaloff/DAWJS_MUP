@@ -1,5 +1,8 @@
 var accountDb = require("../database/party-db");
 var userDb = require("../database/user.db");
+
+const songs = 
+
 exports.createParty = (req, res) => {
   partyObj = req.body;
 
@@ -35,7 +38,7 @@ exports.joinUser = (req, res) => {
     if (result === null) {
       userDb.create({
         partyId: partyObj.partyId,
-        userName: user,
+        userName: partyObj.user,
         favoredArtist: partyObj.artistName,
         favoredGenere: partyObj.genereName,
         favoredSong: partyObj.songName
@@ -64,4 +67,8 @@ exports.getAllUsers = (req, res) => {
       .send(result.filter(user => user.partyId == partyObj.inviteCode));
   });
 };
+
+exports.getNextRecomandation = (req, res) => {
+  
+}
 exports.deleteCode = (req, res) => { };
