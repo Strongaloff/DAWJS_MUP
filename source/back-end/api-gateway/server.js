@@ -7,6 +7,7 @@ let app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+app.options('*', cors());
 app.use('/', routes);
 
 app.listen(6969, () => {
