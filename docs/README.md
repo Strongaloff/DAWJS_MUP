@@ -22,8 +22,7 @@
   - song-manager (manages the Spotify API for meta-data)
   - serverUpload (for uploading a file on local)
   - server (render dynamically all the pages)
- > Start on "https://localhost:8089/register", which will prompt you to register an account
- > The flow should be: 
+ > Start on "https://localhost:8089/register", which will prompt you to register an account. After that:
   - either if you create or want to join a party, the first thing should be uploading a .mp3 file 
   - add a name for a party (for creating) or add a party code (for joining)
   - add your favourite artist, genre and song, which should be used for automatisation
