@@ -103,6 +103,9 @@
         .then(jsonResp => {
           console.log(jsonResp);
           console.log("party joined");
+          window.location.replace(
+            `https://localhost:8089/party?partyId=${partyCode}`
+          );
         });
     }
   </script>

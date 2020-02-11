@@ -1,9 +1,7 @@
 var accountDb = require("../database/party-db");
 var userDb = require("../database/user.db");
 
-const songs = 
-
-exports.createParty = (req, res) => {
+const songs = (exports.createParty = (req, res) => {
   partyObj = req.body;
 
   accountDb.find(partyObj).then(result => {
@@ -28,24 +26,28 @@ exports.createParty = (req, res) => {
         });
     }
   });
-};
+});
 
 exports.joinUser = (req, res) => {
   userObj = req.body;
-
   userDb.find({ userName: userObj.userName }).then(result => {
     console.log(result);
     if (result === null) {
-      userDb.create({
-        partyId: userObj.partyId,
-        userName: userObj.user,
-        favoredArtist: userObj.artistName,
-        favoredGenre: userObj.genreName,
-        favoredSong: userObj.songName
-      }).then(result => {
-        console.log(result);
-        res.send(result);
-      });
+      userDb
+        .create({
+          partyId: userObj.partyId,
+          userName: userObj.user,
+          favoredArtist: userObj.artistName,
+          favoredGenre: userObj.genreName,
+          favoredSong: userObj.songName
+        })
+        .then(result => {
+          // console.log(result);
+          // function redirecting(req, res, next) {
+          // res.redirect("/party");
+          // }
+          res.send(result);
+        });
     } else {
       res.status(403).send("already exists");
     }
@@ -69,7 +71,5 @@ exports.getAllUsers = (req, res) => {
   });
 };
 
-exports.getNextRecomandation = (req, res) => {
-  
-}
-exports.deleteCode = (req, res) => { };
+exports.getNextRecomandation = (req, res) => {};
+exports.deleteCode = (req, res) => {};

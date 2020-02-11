@@ -11,6 +11,8 @@ let credentials = {
 let cors = require("cors");
 let app = express();
 
+app.use(cors());
+
 app.use("/cssFiles", express.static(__dirname + "/serve-pages/css/"));
 app.use("/uploads", express.static(__dirname + "/uploads/"))
 
