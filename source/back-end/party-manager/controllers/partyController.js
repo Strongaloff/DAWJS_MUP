@@ -19,7 +19,7 @@ exports.createParty = (req, res) => {
               partyId: resp._id,
               userName: partyObj.userName,
               favoredArtist: partyObj.artistName,
-              favoredGenere: partyObj.genereName,
+              favoredGenre: partyObj.genreName,
               favoredSong: partyObj.songName
             })
             .then(createResult => {
@@ -40,9 +40,10 @@ exports.joinUser = (req, res) => {
         partyId: userObj.partyId,
         userName: userObj.user,
         favoredArtist: userObj.artistName,
-        favoredGenere: userObj.genereName,
+        favoredGenre: userObj.genreName,
         favoredSong: userObj.songName
       }).then(result => {
+        console.log(result);
         res.send(result);
       });
     } else {

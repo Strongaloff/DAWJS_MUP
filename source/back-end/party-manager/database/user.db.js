@@ -10,9 +10,8 @@ var userSchema = new mongoose.Schema({
   partyId: '',
   userName: '',
   favoredArtist: '',
-  favoredGenere: '',
+  favoredGenre: '',
   favoredSong: ''
-    
 });
 
 let UserModel = mongoose.model('partyUser', userSchema);

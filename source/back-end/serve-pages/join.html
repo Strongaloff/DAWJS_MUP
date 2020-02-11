@@ -48,7 +48,13 @@
             />
           </div>
           <div class="form-buttons">
-            <button type="button" onClick="window.location.href='http://localhost:8075/'" required>Upload your song</button>
+            <button
+              type="button"
+              onClick="window.location.href='http://localhost:8075/'"
+              required
+            >
+              Upload your song
+            </button>
           </div>
         </form>
         <button id="createButton" type="submit">Submit</button>
@@ -56,27 +62,34 @@
     </div>
   </body>
   <script>
-    let partyCode = document.getElementById("invite-code").value;
-    let artist = document.getElementById("artist").value;
-    let songName = document.getElementById("song").value;
-    let genre = document.getElementById("genre").value;
     let createBtn = document.getElementById("createButton");
-    let urlParty = "http://localhost:6969/";
+    let urlParty = "http://localhost:8001/join";
     let urlSong = "http://localhost:8003/";
     let host = localStorage.getItem("user");
     let songUpload = document.getElementById("song-upload");
     let inputUpload = document.getElementById("song-upload");
 
+    let username = localStorage.getItem("user");
+
     console.log(songUpload);
 
-    // createBtn.addEventListener("click", onClick);
+    createBtn.addEventListener("click", onClick);
     // inputUpload.addEventListener("click", onUpload);
 
-    let data = {
-      
-    };
-    
     function onClick() {
+      let partyCode = document.getElementById("invite-code").value;
+      let artist = document.getElementById("artist").value;
+      let songName = document.getElementById("song").value;
+      let genre = document.getElementById("genre").value;
+
+      let data = {
+        partyId: partyCode,
+        songName: songName,
+        genreName: genre,
+        artistName: artist,
+        user: username
+      };
+
       fetch(urlParty, {
         method: "POST",
         body: JSON.stringify(data),
@@ -88,7 +101,8 @@
           if (resp.status == 200) return resp.json();
         })
         .then(jsonResp => {
-          console.log("party created");
+          console.log(jsonResp);
+          console.log("party joined");
         });
     }
   </script>
