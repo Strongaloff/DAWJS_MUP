@@ -1,14 +1,14 @@
-var bcrypt = require('bcryptjs');
-var jwt = require('jsonwebtoken');
-const apiAdapter = require('../routes/api.adapter');
-const BASE_URL = 'http://localhost:8002';
+var bcrypt = require("bcryptjs");
+var jwt = require("jsonwebtoken");
+const apiAdapter = require("../routes/api.adapter");
+const BASE_URL = "http://localhost:8002";
 const api = apiAdapter(BASE_URL);
-const config = require('../config');
+const config = require("../config");
 
 exports.register = (req, res) => {
   api.post(req.path, req.body).then(resp => {
     if (resp.status !== 200) {
-      res.status(500).send('registration failed');
+      res.status(500).send("registration failed");
     }
 
     let token = jwt.sign({ id: req.body.username }, config.secret, {
@@ -20,12 +20,22 @@ exports.register = (req, res) => {
 };
 
 exports.login = (req, res) => {
-  api.get(req.path, req.body).then(resp => {
-    if (resp.status !== 200) {
-      res.status(500).send('invalid credetials');
-    }
-    var token = jwt.sign({ id: user._id }, config.secret, { expiresIn: 86400 });
+  api
+    .post(req.path, req.body)
+    .then(resp => {
+      console.log(resp);
 
-    res.status(200).send({ auth: true, token: token });
-  });
+      console.log("workds");
+      if (resp.status !== 200) {
+        res.status(500).send("invalid credetials");
+      }
+      var token = jwt.sign({ id: req.body.username }, config.secret, {
+        expiresIn: 86400
+      });
+
+      res.status(200).send({ auth: true, token: token });
+    })
+    .catch(err => {
+      res.status(404).send({ auth: false, token: "" });
+    });
 };

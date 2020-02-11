@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./cssFiles/login-register.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <form method="POST">
+          <span class="form-title">Login</span>
+          <div class="form-group">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="form-buttons">
+            <button id="loginButton" type="button">Submit</button>
+            <button onclick="window.location.href = './register';">
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    let loginBtn = document.getElementById("loginButton");
+    loginBtn.addEventListener("click", onClick);
+
+    function onClick() {
+      let name = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+      let data = {
+        username: name,
+        password: password
+      };
+      console.log(data);
+      let url = "http://localhost:6969/login";
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then((resp) => {
+          console.log(resp);
+          if (resp.status == 200) return resp.json();
+          else if (resp.status == 404) alert("Invalid data");
+        })
+        .then(jsonResp => {
+          localStorage.setItem("jwt", jsonResp.token);
+          localStorage.setItem("user", name)
+          location.href = "./main";
+        })
+        .catch(onError);
+
+        function onError(err) {
+          console.log('error');
+        }
+    }
+  </script>
+</html>

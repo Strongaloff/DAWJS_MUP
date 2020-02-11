@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./cssFiles/login-register.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <form method="POST">
+          <span class="form-title">Register</span>
+          <div class="form-group">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="Email address"
+              required
+            />
+          </div>
+          <div class="form-buttons"></div>
+        </form>
+        <button id="registerButton" type="button">Submit</button>
+        <button onclick="window.location.href = './login';">
+          Login
+        </button>
+      </div>
+    </div>
+  </body>
+  <script>
+    let registerBtn = document.getElementById("registerButton");
+    registerBtn.addEventListener("click", onClick);
+
+    function onClick() {
+      let name = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+      let email = document.getElementById("email").value;
+      let urlCheck = "http://localhost:6969/register";
+      let data = {
+        username: name,
+        password: password,
+        email: email
+      };
+      console.log(data);
+      fetch(urlCheck, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(resp => {
+          if (resp.status == 200) return resp.json();
+        })
+        .then(jsonResp => {
+          localStorage.setItem("jwt", jsonResp.token)
+          location.href = "./login";
+        });
+    }
+  </script>
+</html>

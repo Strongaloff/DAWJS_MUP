@@ -3,45 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/login-register.css" />
+    <link rel="stylesheet" href="./cssFiles/login-register.css" />
     <title>Document</title>
   </head>
   <body>
     <div class="container">
       <div class="form-container">
         <form method="POST">
-          <span class="form-title">Register</span>
+          <span class="form-title">Create your party</span>
           <div class="form-group">
             <input
               type="text"
-              name="username"
-              id="username"
-              placeholder="Username"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
+              name="party-name"
+              id="party-name"
+              placeholder="Party name"
               required
             />
           </div>
           <div class="form-group">
             <input
               type="text"
-              name="email"
-              id="email"
-              placeholder="Email address"
-              required
+              name="artist"
+              id="artist"
+              placeholder="Song's artist"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              name="song"
+              id="song"
+              placeholder="Song's name"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              name="genre"
+              id="genre"
+              placeholder="Song's genre"
             />
           </div>
           <div class="form-buttons">
             <button type="submit">Submit</button>
-            <button onclick="window.location.href = './login';">
-              Login
+            <button onclick="window.location.href = './register.html';">
+              Register
             </button>
           </div>
         </form>

@@ -9,16 +9,23 @@ Content-Type: application/json
 
 ####
 
+POST http://localhost:8002/login
+Content-Type: application/json
+
+{
+    "username": "gigi1",
+    "password": "gigi1"
+}
+
+####
+
 GET http://localhost:8002/password/email@domain.net
 
 
 ###
 
 GET http://localhost:6969/password/email@domain.net
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVzZXJuYW1lIiwiaWF0IjoxNTgxMTA3OTQ2LCJleHAiOjE1ODExOTQzNDZ9.Ys1HQLJCTyJXeSnXSKKu_Bc5xB0x9_HDMuTDt0J1L4o
-
-
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InVzZXJuYW1lIiwiaWF0IjoxNTgxMjg1OTM4LCJleHAiOjE1ODEzNzIzMzh9.RPpgQqsfuIj6t_qRrtU7PbgHjV7sOlVKlP1YXS9jZnY
 
 ###
 POST http://localhost:6969/register

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var accountRouter = require('./account-manager.routes');
+var utilityRouter = require('./utility.routes')
 // var feedRouter = require('./feedService')
 // var hashtagRouter = require('./hashtagService')
 // var authRouter = require('../controller/AuthController')
