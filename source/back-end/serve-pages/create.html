@@ -49,9 +49,9 @@
           </div>
           <div class="form-buttons">
             <button type="button" onClick="window.location.href='http://localhost:8075/'" required>Upload your song</button>
-          </div>
         </form>
-        <button id="createButton" type="submit">Submit</button>
+      </div>
+        <button id="createButton">Submit</button>
       </div>
     </div>
   </div>
@@ -88,20 +88,22 @@
   };
 
     let token = localStorage.getItem("jwt");
-
+    console.log(data);
+    
     fetch(urlParty, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        "Authentification": token 
+        // "Authentification": token 
       }
     })
       .then(resp => {
-        console.log(resp);
         if (resp.status == 200) return resp.json();
       })
       .then(jsonResp => {
+        console.log(jsonResp);
+        
         console.log("party created");
       });
   }

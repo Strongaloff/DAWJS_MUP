@@ -14,7 +14,7 @@ router.use((req, res, next) => {
 });
 
 router.use(accountRouter);
-router.use('/party', partyRouter);
+// router.use('/party', partyRouter);
 
 
 module.exports = router;
