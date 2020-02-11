@@ -8,7 +8,10 @@ let db = mongoose.connection;
 
 var userSchema = new mongoose.Schema({
   partyId: '',
-  userName: ''
+  userName: '',
+  favoredArtist: '',
+  favoredGenere: '',
+  favoredSong: ''
     
 });
 

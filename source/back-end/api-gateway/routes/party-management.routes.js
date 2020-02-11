@@ -3,10 +3,13 @@ var router = express.Router();
 var routesConfig = require('./config');
 const apiAdapter = require('./api.adapter');
 
+const isAuthorized = require('../controller/requestAuthentification');
+
+
 const api = apiAdapter(routesConfig['party-manager']);
 
-router.get('/', isAuthorized, (req, res) => {
-  api.get(req.path).then(resp => {
+router.post('/', isAuthorized, (req, res) => {
+  api.post(req.path).then(resp => {
     res.send(resp.data);
   });
 });
@@ -34,3 +37,6 @@ router.post('invite', isAuthorized, (req, res) => {
     res.send(resp.data);
   });
 });
+
+
+module.exports = router;

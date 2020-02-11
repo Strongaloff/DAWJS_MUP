@@ -12,6 +12,7 @@ let cors = require("cors");
 let app = express();
 
 app.use("/cssFiles", express.static(__dirname + "/serve-pages/css/"));
+app.use("/uploads", express.static(__dirname + "/uploads/"))
 
 app.get("/register", function(req, res) {
   res.sendFile(__dirname + "/serve-pages/register.html");
@@ -32,6 +33,10 @@ app.get("/create", function(req, res) {
 app.get("/join", function(req, res) {
   res.sendFile(__dirname + "/serve-pages/join.html");
 });
+
+app.get("/testing", function(req, res) {
+  res.sendFile(__dirname + "/serve-pages/testing.html");
+})
 
 app.get("/party", function(req, res) {
   res.sendFile(__dirname + "/serve-pages/party.html");
